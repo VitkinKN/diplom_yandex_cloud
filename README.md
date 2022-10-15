@@ -332,8 +332,8 @@ deploy-job:
     - echo "Deploy"
     - ssh -o StrictHostKeyChecking=no konstantin@app.diplomvitkos.site sudo chown konstantin /var/www/wordpress/ -R
     - rsync -rvz -e "ssh -o StrictHostKeyChecking=no" ./* konstantin@app.diplomvitkos.site:/var/www/wordpress/
-    - ssh -o StrictHostKeyChecking=no konstantin@app.exraydi.ru rm -rf /var/www/wordpress/.git
-    - ssh -o StrictHostKeyChecking=no konstantin@app.exraydi.ru sudo chown www-data /var/www/wordpress/ -R
+    - ssh -o StrictHostKeyChecking=no konstantin@app.diplomvitkos.site rm -rf /var/www/wordpress/.git
+    - ssh -o StrictHostKeyChecking=no konstantin@app.diplomvitkos.site sudo chown www-data /var/www/wordpress/ -R
 ```
 - *При commite запускается deploy*
 ![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/18(gitlab_ci).jpg )
