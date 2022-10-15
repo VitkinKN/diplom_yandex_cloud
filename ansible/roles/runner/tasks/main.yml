@@ -1,0 +1,47 @@
+- name: Download GitLab repository installation script.
+  ansible.builtin.get_url:
+    url: "{{ gitlab_runner_script_url }}"
+    dest: /tmp/gitlab_install_repository.sh
+    mode: 750
+
+- name: Install GitLab repository.
+  ansible.builtin.command:
+    cmd: /tmp/gitlab_install_repository.sh
+  changed_when: false
+
+- name: Install GitLab runner
+  ansible.builtin.package:
+    name: "gitlab-runner"
+    state: present
+
+- name: register runner
+  become: true
+  ansible.builtin.command:
+    cmd: >
+      gitlab-runner register --non-interactive
+      --url {{ gitlab_runner_url }}
+      --registration-token {{ reg_runner_token }}
+      --executor {{ gitlab_runner_executor }}
+      --description "Runner"
+      --tag-list deployment
+
+- name: Add gitlab-runner user to sudoers
+  ansible.builtin.user:
+    name: gitlab-runner
+    groups: sudo
+    append: true
+    state: present
+
+- name: Allow gitlab-runner user to have passwordless sudo
+  ansible.builtin.lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^gitlab-runner'
+    line: 'gitlab-runner ALL=(ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'
+
+- name: start and enable gitlab-runner
+  ansible.builtin.service:
+    name: gitlab-runner
+    state: started
+    enabled: true

@@ -1,0 +1,90 @@
+---
+
+   - name: Install Nginx letsencrypt
+     hosts: reversproxy
+     become_method: sudo
+     become: true
+     become_user: root
+     remote_user: konstantin
+     roles:
+       - walkinghosts
+   #    - git
+   #    - nginx
+   #    - nodeexporter
+  #     - proxy
+
+   - name: Install dbase 
+     hosts: db01 db02
+     become_method: sudo
+     become: true
+     become_user: root
+     remote_user: konstantin
+     roles:
+       - walkinghosts
+  #     - nodeexporter
+  #     - mysql
+     environment:
+        http_proxy: http://diplomvitkos.site:8118
+        https_proxy: http://diplomvitkos.site:8118
+
+   - name: Install wordpress
+     hosts: app
+     become_method: sudo
+     become: true
+     become_user: root
+     remote_user: konstantin
+     roles:
+       - walkinghosts
+       - git
+   #    - nodeexporter
+    #   - wordpress
+     environment:
+        http_proxy: http://diplomvitkos.site:8118
+        https_proxy: http://diplomvitkos.site:8118
+
+   - name: Install gitlab
+     gather_facts: true
+     hosts: gitlab
+     become_method: sudo
+     become: true
+     become_user: root
+     remote_user: konstantin
+     roles:
+       - walkinghosts
+       - git
+   #    - ansible-role-gitlab
+    #   - nodeexporter
+     environment:
+        http_proxy: http://diplomvitkos.site:8118
+        https_proxy: http://diplomvitkos.site:8118
+
+   - name: Install runner
+     hosts: runner
+     become_method: sudo
+     become: true
+     become_user: root
+     remote_user: konstantin
+     roles:
+       - walkinghosts
+     #   - nodeexporter
+    #   - runner
+     environment:
+        http_proxy: http://diplomvitkos.site:8118
+        https_proxy: http://diplomvitkos.site:8118
+
+   - name: Install monitoring
+     hosts: monitoring
+     become_method: sudo
+     become: true
+     become_user: root
+     remote_user: konstantin
+     roles:
+       - walkinghosts
+   #    - nodeexporter
+   #    - monitoring
+    #   - grafana
+     environment:
+        http_proxy: http://diplomvitkos.site:8118
+        https_proxy: http://diplomvitkos.site:8118
+
+

@@ -1,0 +1,40 @@
+---
+- name: "Guests for reversproxy"
+  lineinfile:
+    path: /etc/hosts
+    line: "192.168.100.11 reversproxy diplomvitkos.site"
+
+- name: "Guests for big basey"
+  lineinfile:
+    path: /etc/hosts
+    line: "192.168.110.12 db01 db01.diplomvitkos.site"
+
+- name: "Guests for little basey"
+  lineinfile:
+    path: /etc/hosts
+    line: "192.168.110.13 db02 db02.diplomvitkos.site"
+
+- name: "Guests for wordpress"
+  lineinfile:
+    path: /etc/hosts
+    line: "192.168.110.14 app www.diplomvitkos.site"
+
+- name: "Guests for gitlab"
+  lineinfile:
+    path: /etc/hosts
+    line: "192.168.110.15 gitlab gitlab.diplomvitkos.site"
+
+- name: "Guests for gitlab"
+  lineinfile:
+    path: /etc/hosts
+    line: "192.168.110.15 gitlab gitlab.diplomvitkos.site"
+
+- name: "Guests for runner"
+  lineinfile:
+    path: /etc/hosts
+    line: "192.168.110.16 runner runner.diplomvitkos.site"
+
+- name: "Guests for monitoring"
+  lineinfile:
+    path: /etc/hosts
+    line: "192.168.110.17 monitoring monitoring.diplomvitkos.site"

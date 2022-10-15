@@ -1,0 +1,85 @@
+- name: Install Nginx Web Server
+  ansible.builtin.apt:
+    name: nginx
+    state: latest
+
+- name: Disable default site
+  ansible.builtin.file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+
+- name: Replace default site
+  ansible.builtin.template:
+    src: templates/nginx.conf
+    dest: /etc/nginx/conf.d/
+    mode: 0644
+  notify:
+    - Nginx restart service
+
+- name: Install PHP Extensions
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    update_cache: true
+    state: latest
+  with_items: "{{ php_modules }}"
+
+- name: Purge Apache2
+  ansible.builtin.apt:
+    name: apache2
+    state: absent
+    purge: true
+
+- name: Create document root
+  ansible.builtin.file:
+    path: "{{ doc_root }}"
+    state: directory
+    owner: "www-data"
+    group: "www-data"
+    mode: '0755'
+
+- name: Download and unpack latest WordPress
+  ansible.builtin.unarchive:
+    src: https://wordpress.org/latest.tar.gz
+    dest: "{{ doc_root }}"
+    remote_src: true
+    extra_opts: [--strip-components=1]
+    creates: "{{ doc_root }}/wp-admin"
+
+- name: Set ownership
+  ansible.builtin.file:
+    path: "{{ doc_root }}"
+    state: directory
+    recurse: true
+    owner: "{{ owner }}"
+    group: "{{ group }}"
+    mode: '0750'
+
+- name: Set permissions for directories
+  ansible.builtin.shell: "/usr/bin/find {{ doc_root }}/ -type d -exec chmod 755 {} \\;"
+  changed_when: false
+
+- name: Set permissions for files
+  ansible.builtin.shell: "/usr/bin/find {{ doc_root }}/ -type f -exec chmod 644 {} \\;"
+  changed_when: false
+
+- name: Set up wp-config
+  ansible.builtin.template:
+    src: "templates/wp-config.php.j2"
+    dest: "{{ doc_root }}/wp-config.php"
+    owner: "{{ owner }}"
+    group: "{{ group }}"
+    mode: '0640'
+
+- name: Install WP-CLI for Runner
+  ansible.builtin.get_url:
+    url: "{{ wp_cli_phar_url }}"
+    dest: "{{ wp_cli_bin_path }}"
+    force: true
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Restart nginx, in all cases
+  ansible.builtin.service:
+    name: nginx
+    state: restarted

@@ -1,0 +1,5 @@
+---
+reg_runner_token: "GR1348941c3W8SRywjTK7_mAJbNyJ"
+gitlab_runner_script_url: "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh"
+gitlab_runner_url: "http://gitlab.diplomvitkos.site/"
+gitlab_runner_executor: shell
