@@ -19,7 +19,7 @@ resource "yandex_compute_instance" "node04" {
 
   network_interface {
     subnet_id  = "${yandex_vpc_subnet.subnet-for-instanses.id}"
-    nat        = true
+    nat        = false
     ip_address = "192.168.110.14"
   }
 

@@ -8,7 +8,6 @@
      remote_user: konstantin
      roles:
        - walkinghosts
-   #    - git
    #    - nginx
    #    - nodeexporter
   #     - proxy
@@ -35,7 +34,6 @@
      remote_user: konstantin
      roles:
        - walkinghosts
-       - git
    #    - nodeexporter
     #   - wordpress
      environment:
@@ -51,7 +49,6 @@
      remote_user: konstantin
      roles:
        - walkinghosts
-       - git
    #    - ansible-role-gitlab
     #   - nodeexporter
      environment:
@@ -66,7 +63,7 @@
      remote_user: konstantin
      roles:
        - walkinghosts
-     #   - nodeexporter
+       - nodeexporter
     #   - runner
      environment:
         http_proxy: http://diplomvitkos.site:8118
@@ -80,9 +77,9 @@
      remote_user: konstantin
      roles:
        - walkinghosts
-   #    - nodeexporter
-   #    - monitoring
-    #   - grafana
+       - nodeexporter
+       - monitoring
+       - grafana
      environment:
         http_proxy: http://diplomvitkos.site:8118
         https_proxy: http://diplomvitkos.site:8118
