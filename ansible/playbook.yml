@@ -8,9 +8,9 @@
      remote_user: konstantin
      roles:
        - walkinghosts
-   #    - nginx
-   #    - nodeexporter
-  #     - proxy
+       - nginx
+       - nodeexporter
+       - proxy
 
    - name: Install dbase 
      hosts: db01 db02
@@ -20,11 +20,9 @@
      remote_user: konstantin
      roles:
        - walkinghosts
-  #     - nodeexporter
-  #     - mysql
-     environment:
-        http_proxy: http://diplomvitkos.site:8118
-        https_proxy: http://diplomvitkos.site:8118
+       - nodeexporter
+       - mysql
+
 
    - name: Install wordpress
      hosts: app
@@ -34,11 +32,9 @@
      remote_user: konstantin
      roles:
        - walkinghosts
-   #    - nodeexporter
-    #   - wordpress
-     environment:
-        http_proxy: http://diplomvitkos.site:8118
-        https_proxy: http://diplomvitkos.site:8118
+       - nodeexporter
+       - wordpress
+
 
    - name: Install gitlab
      gather_facts: true
@@ -49,11 +45,8 @@
      remote_user: konstantin
      roles:
        - walkinghosts
-   #    - ansible-role-gitlab
-    #   - nodeexporter
-     environment:
-        http_proxy: http://diplomvitkos.site:8118
-        https_proxy: http://diplomvitkos.site:8118
+       - ansible-role-gitlab
+       - nodeexporter
 
    - name: Install runner
      hosts: runner
@@ -64,10 +57,8 @@
      roles:
        - walkinghosts
        - nodeexporter
-    #   - runner
-     environment:
-        http_proxy: http://diplomvitkos.site:8118
-        https_proxy: http://diplomvitkos.site:8118
+       - runner
+
 
    - name: Install monitoring
      hosts: monitoring
@@ -80,8 +71,6 @@
        - nodeexporter
        - monitoring
        - grafana
-     environment:
-        http_proxy: http://diplomvitkos.site:8118
-        https_proxy: http://diplomvitkos.site:8118
+
 
 
