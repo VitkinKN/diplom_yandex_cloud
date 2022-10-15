@@ -1,4 +1,0 @@
----
-- import_tasks: prometheus.yml
-- import_tasks: grafana.yml
-- import_tasks: alertmanager.yml
