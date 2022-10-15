@@ -158,7 +158,7 @@ Terraform will perform the following actions:
 
 Plan: 16 to add, 0 to change, 0 to destroy.
 ```
-![](https://github.com/VitkinKN/diplom_yandexcloud/blob/master/images/1.jpg )
+![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/1.jpg )
 
 - *Создадим workspace `stage`*
 ```
@@ -177,10 +177,10 @@ konstantin@konstantin-forever:~/DEVOPS_COURSE/DIPLOM/terraform/stage$ terraform 
 - *Поднимаются 7 VM, все на основе образа ubuntu - имеет внешний статический IP адрес, арендованный у YandexCloud -51.250.6.241*
 - *Домен был делегирован под управление ns1.yandexcloud.net и ns2.yandexcloud.net*
 
-![](https://github.com/VitkinKN/diplom_yandexcloud/blob/master/images/3.jpg )
+![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/3.jpg )
 
 - *Происходит автоматическая регистрация DNS записей в YandexCloud.*
-![](https://github.com/VitkinKN/diplom_yandexcloud/blob/master/images/2.jpg )
+![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/2.jpg )
 
 ```
 terraform apply
@@ -286,10 +286,10 @@ ok: [diplomvitkos.site]
 </details>
 
 - *Открываем в браузере любой из URL нашего кластера и видем ответ сервера (502 Bad Gateway)*
-![](https://github.com/VitkinKN/diplom_yandexcloud/blob/master/images//5.jpg )
-![](https://github.com/VitkinKN/diplom_yandexcloud/blob/master/images/6.jpg )
-![](https://github.com/VitkinKN/diplom_yandexcloud/blob/master/images/7.jpg )
-![](https://github.com/VitkinKN/diplom_yandexcloud/blob/master/images/9.jpg )
+![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images//5.jpg )
+![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/6.jpg )
+![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/7.jpg )
+![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/9.jpg )
 ___
 ### *Установка MySQL*
 
@@ -300,17 +300,17 @@ ___
 ### *Установка wordpress*
 
 - *Разработана [роль](./ansible/roles/wordpress) для установки wordpress*
-![](https://github.com/VitkinKN/diplom_yandexcloud/blob/master/images/11.jpg )
-![](https://github.com/VitkinKN/diplom_yandexcloud/blob/master/images/10.jpg )
+![](https://github.com/VitkinKN/ddiplom_yandex_cloud/blob/master/images/11.jpg )
+![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/10.jpg )
 
 ___
 ### *Установка Gitlab CE и Gitlab Runner*
 -*Настроим CI|CD систему для автоматического развертывания приложения при изменения кода*
 - *Разработана [роль](./ansible/roles/runner) для установки runnerа (предварительно нв репозитории gitlab.diplomvitkos.site и получили токен)*
-![](https://github.com/VitkinKN/diplom_yandexcloud/blob/master/images/17(gitlabtoken-registr).jpg )
+![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/17(gitlabtoken-registr).jpg )
 - *Имена серверов gitlab.diplomvitkos.site и runner.diplomvitkos.site*
 - *runner подключается автоматически на основе заранее прописанного токена*
-![](https://github.com/VitkinKN/diplom_yandexcloud/blob/master/images/17(gitlabtoken-onlain).jpg )
+![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/17(gitlabtoken-onlain).jpg )
 - *Создаем репозиторий wordpress*
 - *Добавляем файл gitlab-ci.yml*
 - *На хосте app генерим SSH ключи, открытый ключ перенаправляем в authorized_keys, а закрытый ложим в gitlab для подключения к арр*
@@ -336,9 +336,9 @@ deploy-job:
     - ssh -o StrictHostKeyChecking=no konstantin@app.exraydi.ru sudo chown www-data /var/www/wordpress/ -R
 ```
 - *При commite запускается deploy*
-![](https://github.com/VitkinKN/diplom_yandexcloud/blob/master/images/18(gitlab_ci).jpg )
+![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/18(gitlab_ci).jpg )
 - *Результат работы deploy*
-![](https://github.com/VitkinKN/diplom_yandexcloud/blob/master/images/.jpg )
+![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/.jpg )
 
 <details>
 <summary>Работа TASK при установке runner</summary>
@@ -381,12 +381,12 @@ ___
 - *https://prometheus.diplomvitkos.site (Prometheus)*
 - *https://alertmanager.diplomvitkos.site (Alert Manager)*
 - *На всех серверах установлен [Node Exporter](./ansible/roles/nodeexporter) и его метрики доступны Prometheus.*
-![](https://github.com/VitkinKN/diplom_yandexcloud/blob/master/images/13(prometeus).jpg )
+![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/13(prometeus).jpg )
 - *У Alert Manager есть необходимый набор правил для создания алертов*
-![](https://github.com/VitkinKN/diplom_yandexcloud/blob/master/images/15(alertmen).jpg )
+![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/15(alertmen).jpg )
 - *В Grafana есть дашборд отображающий метрики из Node Exporter по всем серверам.*
-![](https://github.com/VitkinKN/diplom_yandexcloud/blob/master/images/14(grafana).jpg )
-![](https://github.com/VitkinKN/diplom_yandexcloud/blob/master/images/16(grafana).jpg )
+![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/14(grafana).jpg )
+![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/16(grafana).jpg )
 ___
 
 
