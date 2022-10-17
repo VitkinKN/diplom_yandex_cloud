@@ -300,8 +300,7 @@ ___
 ### *Установка wordpress*
 
 - *Разработана [роль](./ansible/roles/wordpress) для установки wordpress*
-![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/11.jpg )
-![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/10.jpg )
+![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/21.jpg )
 
 ___
 ### *Установка Gitlab CE и Gitlab Runner*
