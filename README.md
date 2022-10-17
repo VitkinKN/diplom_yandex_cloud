@@ -387,7 +387,7 @@ ___
 ![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/15(alertmen1).jpg )
 ![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/15(alertmen2).jpg )
 - *В Grafana есть дашборд отображающий метрики из Node Exporter по всем серверам.*
-![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/14(grafana).jpg )
+![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/14(graf.jpg )
 ![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/16(prometeus).jpg )
 ![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/16(prometeus+).jpg )
 ___
