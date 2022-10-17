@@ -384,7 +384,7 @@ ___
 ![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/13(prometeus).jpg )
 - *У Alert Manager есть необходимый набор правил для создания алертов*
 - *Остановил для проверки одну ноду:*
-![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/15(alertmen).jpg )
+![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/15(alertmen1).jpg )
 ![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/15(alertmen2).jpg )
 - *В Grafana есть дашборд отображающий метрики из Node Exporter по всем серверам.*
 ![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/14(grafana).jpg )
