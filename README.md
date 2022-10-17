@@ -307,10 +307,10 @@ ___
 ### *Установка Gitlab CE и Gitlab Runner*
 -*Настроим CI|CD систему для автоматического развертывания приложения при изменения кода*
 - *Разработана [роль](./ansible/roles/runner) для установки runnerа (предварительно нв репозитории gitlab.diplomvitkos.site и получили токен)*
-![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/17(gitlabtoken-registr).jpg )
+![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/19.jpg )
 - *Имена серверов gitlab.diplomvitkos.site и runner.diplomvitkos.site*
 - *runner подключается автоматически на основе заранее прописанного токена*
-![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/17(gitlabtoken-onlain).jpg )
+![](https://github.com/VitkinKN/diplom_yandex_cloud/blob/master/images/20.jpg )
 - *Создаем репозиторий wordpress*
 - *Добавляем файл gitlab-ci.yml*
 - *На хосте app генерим SSH ключи, открытый ключ перенаправляем в authorized_keys, а закрытый ложим в gitlab для подключения к арр*
